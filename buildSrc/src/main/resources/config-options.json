@@ -1,0 +1,18 @@
+{
+    "logType" : {
+      "argType" : "ArgType.Choice<LogType>()",
+      "kotlinType": "com.akuleshov7.cli.core.config.LogType",
+      "fullName" : "log",
+      "shortName" : "",
+      "description" : "Type of logging mode",
+      "default" : "LogType.WARN"
+    },
+    "resultOutput" : {
+      "argType" : "ArgType.Choice<OutputStreamType>()",
+      "kotlinType": "com.akuleshov7.cli.core.config.OutputStreamType",
+      "fullName" : "result-output",
+      "shortName" : "out",
+      "description" : "Data output stream",
+      "default" : "OutputStreamType.STDOUT"
+    }
+}
