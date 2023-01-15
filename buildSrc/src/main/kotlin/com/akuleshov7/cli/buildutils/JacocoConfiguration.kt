@@ -4,7 +4,7 @@
 
 @file:Suppress("FILE_WILDCARD_IMPORTS")
 
-package com.akulesho7.cli
+package com.akuleshov7.cli.buildutils
 
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test

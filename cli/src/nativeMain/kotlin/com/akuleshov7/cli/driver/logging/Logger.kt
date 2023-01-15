@@ -4,6 +4,8 @@
 
 package com.akuleshov7.cli.driver.logging
 
+import com.akuleshov7.cli.common.logging.logError
+import com.akuleshov7.cli.common.logging.logWarn
 import com.akuleshov7.cli.driver.ExitCodes
 import kotlin.system.exitProcess
 

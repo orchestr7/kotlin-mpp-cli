@@ -17,8 +17,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(libs.okio)
                 implementation(projects.common)
+                api(libs.okio)
             }
         }
 
@@ -32,7 +32,6 @@ kotlin {
     }
 
     linkProperExecutable(os)
-
 }
 
 application {
@@ -59,7 +58,7 @@ fun registerNativeBinaries(os: DefaultOperatingSystem, kotlin: KotlinMultiplatfo
             val name = "kotlin-mpp-cli-${project.version}-${this@configure.name}"
             executable {
                 this.baseName = name
-                entryPoint = "com.akuleshov7.cli.main"
+                entryPoint = "com.akuleshov7.cli.driver.main"
             }
         }
     }

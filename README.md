@@ -49,10 +49,16 @@ implementation
 `--help`
 [OptionsTable.md](OptionsTable.md)
 
+## Small notes about architecture of this project:
+Main modules:
+- cli: contains main method and cli-related things
+- common: common logic like data models and so on
+- core: core business logic and a framework (if any)
+
 ## Fix me:
 - need to support generation of package name
 - need to support usage of application name in releasing (release.yml)
 - badges generation (based on the cli and package name)
-- replace 'com.akulesho7' to your package domain name
+- replace 'com.akuleshov7.cli' to your package domain name
 - replace everywhere 'kotlin-mpp-cli' to your name of the project
 - do not forget to change Publishing configuration (license, url, etc.)

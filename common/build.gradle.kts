@@ -12,10 +12,5 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.okio.fakefilesystem)
-            }
-        }
     }
 }

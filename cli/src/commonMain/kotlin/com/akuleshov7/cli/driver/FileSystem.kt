@@ -8,5 +8,4 @@ package com.akuleshov7.cli.driver
 
 import okio.FileSystem
 
-// see the description of this file
 expect val fs: FileSystem

@@ -25,17 +25,7 @@ kotlin {
             }
         }
     }
-    val nativeTargets = listOf(linuxX64(), mingwX64(), macosX64())
-    if (project.name == "common") {
-        // additionally, common should be available for JS too
-        // fixme: shouldn't rely on hardcoded project name here
-        js(BOTH).browser()
-
-        // store yarn.lock in the root directory
-        rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension> {
-            lockFileDirectory = rootProject.projectDir
-        }
-    }
+    val nativeTargets = listOf(linuxX64(), mingwX64(), macosX64(), macosArm64())
 
     if (hasProperty("disableRedundantTargets") && (property("disableRedundantTargets") as String?) != "false") {
         // with this flag we exclude targets that are present on multiple OS to speed up build
@@ -71,33 +61,25 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation("io.kotest:kotest-assertions-core:5.5.4")
-            }
-        }
-        val commonNonJsMain by creating {
-            dependsOn(commonMain)
-        }
-        val commonNonJsTest by creating {
-            dependsOn(commonTest)
-            dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
         val jvmMain by getting {
-            dependsOn(commonNonJsMain)
+            dependsOn(commonMain)
         }
         val jvmTest by getting {
-            dependsOn(commonNonJsTest)
+            dependsOn(commonTest)
             dependencies {
                 implementation(kotlin("test-junit5"))
                 implementation("org.junit.jupiter:junit-jupiter-engine:5.9.1")
             }
         }
         val nativeMain by creating {
-            dependsOn(commonNonJsMain)
+            dependsOn(commonMain)
         }
         val nativeTest by creating {
-            dependsOn(commonNonJsTest)
+            dependsOn(commonTest)
         }
         nativeTargets.forEach {
             getByName("${it.name}Main").dependsOn(nativeMain)

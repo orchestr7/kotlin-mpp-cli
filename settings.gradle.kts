@@ -1,7 +1,7 @@
 rootProject.name = "kotlin-mpp-cli"
 
 include("common")
-include ("cli")
+include("cli")
 
 dependencyResolutionManagement {
     repositories {

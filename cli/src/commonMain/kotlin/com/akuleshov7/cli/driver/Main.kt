@@ -4,6 +4,9 @@
 
 package com.akuleshov7.cli.driver
 
-fun main(args: Array<String>) {
+import com.akuleshov7.cli.common.logging.logInfo
 
+fun main(args: Array<String>) {
+    // your code goes here
+    logInfo("Hello world")
 }
