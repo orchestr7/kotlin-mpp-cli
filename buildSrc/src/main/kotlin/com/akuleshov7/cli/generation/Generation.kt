@@ -196,7 +196,7 @@ fun FunSpec.Builder.assignMembers(
     options.forEach { (key, _) ->
         this.addCode(CodeBlock.builder()
             .add("%N = %N.%M(%N, %N.%N),", key, key + "Option",
-                MemberName("com.akuleshov7.cli.core.utils", "resolveValue"),
+                MemberName("com.akuleshov7.cli.common.utils", "resolveValue"),
                 key, overrideFieldName, key)
             .add("\n")
             .build())
@@ -205,7 +205,7 @@ fun FunSpec.Builder.assignMembers(
         if (value.default != null) {
             this.addCode(CodeBlock.builder()
                 .add("%N = %N.%M(%N, %N.%N),", key, key + "Argument",
-                    MemberName("com.akuleshov7.cli.core.utils", "resolveValue"),
+                    MemberName("com.akuleshov7.cli.common.utils", "resolveValue"),
                     key, overrideFieldName, key)
                 .add("\n")
                 .build())
@@ -244,7 +244,7 @@ fun generateCliProperties(
     arguments: Map<String, Argument>,
     destination: File
 ) {
-    val builder = FileSpec.builder("com.akuleshov7.cli.core.config", "CliProperties")
+    val builder = FileSpec.builder("com.akuleshov7.cli.common.config", "CliProperties")
     builder.addFileComment(autoGenerationComment)
     builder.addImport("kotlinx.cli", "ArgParser")
     builder.addImport("kotlinx.cli", "ArgType")
@@ -389,7 +389,7 @@ fun extractClassNameFromString(type: String) = ClassName(type.substringBeforeLas
  */
 fun generateParseArgsFunc(options: Map<String, Option>, arguments: Map<String, Argument>): FunSpec.Builder {
     val parseArgsFunc = FunSpec.builder("parseArgs")
-    parseArgsFunc.returns(ClassName("com.akuleshov7.cli.core.config", "CliProperties"))
+    parseArgsFunc.returns(ClassName("com.akuleshov7.cli.common.config", "CliProperties"))
     parseArgsFunc.addParameter("fs", ClassName.bestGuess("okio.FileSystem"))
     parseArgsFunc.addParameter("args", Array::class.asClassName().parameterizedBy(String::class.asClassName()))
     val overrideFieldName = "propertiesFromFileOrDefault"
@@ -399,12 +399,12 @@ fun generateParseArgsFunc(options: Map<String, Option>, arguments: Map<String, A
         .addStatement("%N.parse(%N)", "parser", "args")
         .addStatement("val %N: %T = %N.%M(%N, %S)",
             overrideFieldName,
-            ClassName("com.akuleshov7.cli.core.config", "CliPropertiesDefaults"),
+            ClassName("com.akuleshov7.cli.common.config", "CliPropertiesDefaults"),
             "fs",
-            MemberName("com.akuleshov7.cli.core.utils", "parsePropertiesFile"),
-            "testRootDir",
+            MemberName("com.akuleshov7.cli.common.utils", "parsePropertiesFile"),
+            "rootDir",
             cliName)
-        .addStatement("return %T(", ClassName("com.akuleshov7.cli.core.config", "CliProperties"))
+        .addStatement("return %T(", ClassName("com.akuleshov7.cli.common.config", "CliProperties"))
         .assignMembers(options, arguments, overrideFieldName)
         .addStatement(")")
     return parseArgsFunc

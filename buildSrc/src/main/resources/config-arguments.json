@@ -1,16 +1,9 @@
 {
-  "testRootDir" : {
+  "rootDir" : {
     "argType" : "ArgType.String",
     "kotlinType": "kotlin.String",
-    "description" : "Path to test root dir",
+    "description" : "Root directory where file with properties can be found",
     "vararg": false,
-    "default": null
-  },
-  "testFiles" : {
-    "argType" : "ArgType.String",
-    "kotlinType": "kotlin.collections.List<kotlin.String>",
-    "description" : "Paths to individual test files, can be provided to execute only them",
-    "vararg": true,
     "default": null
   }
 }

@@ -1,5 +1,3 @@
-## <img src="/ktoml.png" width="300px"/>
-
 ![Releases](https://img.shields.io/github/v/release/akuleshov7/ktoml)
 ![Maven Central](https://img.shields.io/maven-central/v/com.akuleshov7/ktoml-core)
 ![License](https://img.shields.io/github/license/akuleshov7/ktoml)
