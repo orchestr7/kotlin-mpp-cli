@@ -1,62 +1,54 @@
-![Releases](https://img.shields.io/github/v/release/akuleshov7/ktoml)
-![Maven Central](https://img.shields.io/maven-central/v/com.akuleshov7/ktoml-core)
-![License](https://img.shields.io/github/license/akuleshov7/ktoml)
-![Build and test](https://github.com/akuleshov7/ktoml/actions/workflows/build_and_test.yml/badge.svg?branch=main)
-![Lines of code](https://img.shields.io/tokei/lines/github/akuleshov7/ktoml)
-![Hits-of-Code](https://hitsofcode.com/github/akuleshov7/ktoml?branch=main)
-![GitHub repo size](https://img.shields.io/github/repo-size/akuleshov7/ktoml)
-![Run deteKT](https://github.com/akuleshov7/ktoml/actions/workflows/detekt.yml/badge.svg?branch=main)
-![Run diKTat](https://github.com/akuleshov7/ktoml/actions/workflows/diktat.yml/badge.svg?branch=main)
+![License](https://img.shields.io/github/license/akuleshov7/kotlin-mpp-cli)
+![Build and test](https://github.com/akuleshov7/kotlin-mpp-cli/actions/workflows/build_and_test.yml/badge.svg?branch=main)
+![Hits-of-Code](https://hitsofcode.com/github/akuleshov7/kotlin-mpp-cli?branch=main)
+![GitHub repo size](https://img.shields.io/github/repo-size/akuleshov7/kotlin-mpp-cli)
+![Run deteKT](https://github.com/akuleshov7/kotlin-mpp-cli/actions/workflows/detekt.yml/badge.svg?branch=main)
+![Run diKTat](https://github.com/akuleshov7/kotlin-mpp-cli/actions/workflows/diktat.yml/badge.svg?branch=main)
 
-My cli application description
+Want to write a native cli application, but do not want to write it in C/C++? 
+You can easily write it using Kotlin MPP and have Java/Native executables using this template!
+All boilerplate is already done in this template, so no need to spend days on the boring work.
 
-## Acknowledgement
-Special thanks to those awesome developers who give us great suggestions, help us to maintain and improve this project:
-@akuleshov7
+Don't forget to give a star to this project to save it! :star:
+
+## What's inside
+:white_check_mark: Github actions build/release scripts to Central and Github Releases \
+:white_check_mark: Gradle build/release tasks for Kotlin MPP \
+:white_check_mark: Code analysis enabled with full GitHub integration \
+:white_check_mark: Junit testing report integration with Github \
+:white_check_mark: Nice and easy code generation for cli with a config file \
+:white_check_mark: Application that is based on `kotlinx.cli` \
+:white_check_mark: Utility methods for a cli application \
+
+## How to use it
+0. Create a new repository based on this template using Github: `Use this template` -> `Create a new repository`;
+1. Replace everywhere 'kotlin-mpp-cli' to your name of the project;
+2. Replace 'com.akuleshov7.cli' to your package domain name in code and directory names (!); 
+3. Run `CliPropertiesTest.kt` on JVM to check that everything is setup correctly;
+4. Add your cli options to `buildSrc/src/main/resources/config-options.json` (and `config-arguments.json`);
+5. Once the project is built (`./gradlew build`), [OptionsTable.md](OptionsTable.md), `CliProperties.kt` files will be generated;
+6. Implement the business logic of your application in `core` module (`BusinessLogic` class);
+7. Do not forget to change Publishing configuration (license, git url, etc.) in `PublishingConfiguration.kt`;
+8. Add publishing credentials for Maven central to GitHub: `OSSRH_USERNAME`, `OSSRH_PASSWORD`, `GPG_SEC`, `GPG_PASSWORD`.
+Read more [here](https://central.sonatype.org/publish/publish-gradle/).
 
 ## Supported platforms
 Main part of the code is written in Kotlin **common** module. This means that it can be built for each and every Kotlin native platform.
-However, to reduce the scope, ktoml now supports only the following platforms:
+However, to reduce the scope, kotlin-mpp-cli now supports only the following platforms:
 - jvm
 - mingwx64
 - linuxx64
 - macosx64
+- macosArm64 (M1+)
 
 :globe_with_meridians: latest supported Kotlin version: 1.8
 
-## Dependency
-<details>
-<summary>Maven</summary>
-
-```pom
-<dependency>
-</dependency>
-```
-</details>
-
-<details>
-<summary>Gradle Groovy</summary>
-
-```groovy
-implementation 
-
-```
-</details>
-
-## How to use
-`--help`
-[OptionsTable.md](OptionsTable.md)
-
-## Small notes about architecture of this project:
+## Small notes about architecture of this project
 Main modules:
 - cli: contains main method and cli-related things
 - common: common logic like data models and so on
 - core: core business logic and a framework (if any)
 
-## Fix me:
-- need to support generation of package name
-- need to support usage of application name in releasing (release.yml)
-- badges generation (based on the cli and package name)
-- replace 'com.akuleshov7.cli' to your package domain name
-- replace everywhere 'kotlin-mpp-cli' to your name of the project
-- do not forget to change Publishing configuration (license, url, etc.)
+## Acknowledgement
+Special thanks to those developers who help us to maintain and improve this project:
+@akuleshov7 @petertrr

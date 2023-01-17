@@ -16,6 +16,13 @@ kotlin {
                 implementation(libs.kotlinx.serialization.core)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.kotlinx.coroutines.core)
+                implementation(files("/generated/src"))
+            }
+        }
+
+        val commonTest by getting {
+            dependencies {
+                implementation(files("/generated/src"))
             }
         }
     }
@@ -58,7 +65,9 @@ setOf("nativeMain", "jvmMain", "commonMain").forEach { name ->
 }
 
 // specific task for the generation of Properties.kt and Version.kt file
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().forEach {
-    it.dependsOn(generateConfigOptionsTaskProvider)
-    it.dependsOn(generateVersionFileTaskProvider)
+tasks.configureEach {
+    if (!setOf(generateConfigOptionsTaskProvider.name, generateVersionFileTaskProvider.name).contains(this.name)) {
+        this.dependsOn(generateConfigOptionsTaskProvider)
+        this.dependsOn(generateVersionFileTaskProvider)
+    }
 }

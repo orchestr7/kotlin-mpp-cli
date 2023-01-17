@@ -9,7 +9,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.common)
-
                 api(libs.okio)
             }
         }

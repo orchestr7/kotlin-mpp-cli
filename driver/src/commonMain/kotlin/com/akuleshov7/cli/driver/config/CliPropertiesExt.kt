@@ -17,7 +17,7 @@ fun CliProperties.Companion.of(args: Array<String>): CliProperties {
     val configFromCli = parseArgs(fs, args)
 
     tryToUpdateDebugLevel(configFromCli)
-    logDebug("Using the following properties for command execution:\n$configFromCli")
+    logDebug("Using the following properties:\n$configFromCli")
     return configFromCli.validate()
 }
 

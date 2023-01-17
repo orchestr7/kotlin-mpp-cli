@@ -2,7 +2,8 @@
     "HEADER_MISSING_IN_NON_SINGLE_CLASS_FILE",
     "MISSING_KDOC_TOP_LEVEL",
     "MISSING_KDOC_ON_FUNCTION",
-    "FILE_NAME_MATCH_CLASS"
+    "FILE_NAME_MATCH_CLASS",
+    "MatchingDeclarationName"
 )
 
 package com.akuleshov7.cli.common.utils
@@ -12,41 +13,6 @@ import platform.posix.fflush
 import platform.posix.fprintf
 import platform.posix.stderr
 import platform.posix.stdout
-
-/**
- * Atomic values
- */
-actual class AtomicInt actual constructor(value: Int) {
-    private val atomicInt = kotlin.native.concurrent.AtomicInt(value)
-
-    /**
-     * @return value
-     */
-    actual fun get(): Int = atomicInt.value
-
-    /**
-     * @param delta increments the value_ by delta
-     * @return the new value
-     */
-    actual fun addAndGet(delta: Int): Int = atomicInt.addAndGet(delta)
-}
-
-@Suppress("FUNCTION_BOOLEAN_PREFIX")
-actual class AtomicBoolean actual constructor(value: Boolean) {
-    private val atomicBoolean = kotlin.native.concurrent.AtomicReference(value)
-
-    /**
-     * @return value
-     */
-    actual fun get(): Boolean = atomicBoolean.value
-
-    /**
-     * @param expect expected value
-     * @param update updated value
-     * @return the result of the comparison
-     */
-    actual fun compareAndSet(expect: Boolean, update: Boolean): Boolean = atomicBoolean.compareAndSet(expect, update)
-}
 
 @Suppress("USE_DATA_CLASS")
 actual class GenericAtomicReference<T> actual constructor(valueToStore: T) {
