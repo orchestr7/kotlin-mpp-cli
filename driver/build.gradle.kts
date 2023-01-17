@@ -22,6 +22,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.common)
+                implementation(projects.core)
                 implementation(libs.kotlinx.cli)
                 implementation(libs.kotlinx.serialization.core)
                 api(libs.okio)
