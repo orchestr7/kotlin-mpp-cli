@@ -12,12 +12,6 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.*
 
 /**
- * @return path to the file with save-cli version for current build
- */
-@Suppress("CUSTOM_GETTERS_SETTERS")
-internal val Project.pathToSaveCliVersion get() = "${rootProject.buildDir}/save-cli.properties"
-
-/**
  * Configures reckon plugin for [this] project, should be applied for root project only
  */
 fun Project.configureVersioning() {
@@ -27,17 +21,9 @@ fun Project.configureVersioning() {
         .service
         .map { it.grgit }
 
-    // should be provided in the gradle.properties
-    val isDevelopmentVersion = hasProperty("save.profile") && property("save.profile") == "dev"
     configure<ReckonExtension> {
         scopeFromProp()
-        if (isDevelopmentVersion) {
-            // this should be used during local development most of the time, so that constantly changing version
-            // on a dirty git tree doesn't cause other task updates
-            snapshotFromProp()
-        } else {
             stageFromProp("alpha", "rc", "final")
-        }
     }
 
     val grgit = grgitProvider.get()
@@ -49,19 +35,3 @@ fun Project.configureVersioning() {
         )
     }
 }
-
-/**
- * @return true if this string denotes a snapshot version
- */
-internal fun String.isSnapshot() = endsWith("SNAPSHOT")
-
-/**
- * Image reference must be in the form '[domainHost:port/][path/]name[:tag][@digest]', with 'path' and 'name' containing
- * only [a-z0-9][.][_][-].
- * FixMe: temporarily copy-pasted in here and in gradle/plugins
- *
- * @return correctly formatted version
- */
-internal fun Project.versionForDockerImages(): String =
-        (project.findProperty("build.dockerTag") as String? ?: version.toString())
-            .replace(Regex("[^._\\-a-zA-Z0-9]"), "-")

@@ -4,6 +4,7 @@ import com.akuleshov7.cli.generation.optionsConfigFilePath
 
 plugins {
     id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {

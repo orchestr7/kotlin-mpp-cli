@@ -36,7 +36,7 @@ internal fun Project.configurePublications() {
             this.pom {
                 name.set(project.name)
                 description.set(project.description ?: project.name)
-                url.set("https://github.com/saveourtool/save-cloud")
+                url.set("https://github.com/akuleshov7/kotlin-mpp-cli")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -57,8 +57,8 @@ internal fun Project.configurePublications() {
                     }
                 }
                 scm {
-                    url.set("https://github.com/saveourtool/save-cloud")
-                    connection.set("scm:git:git://github.com/saveourtool/save-cloud.git")
+                    url.set("https://github.com/akuleshov7/kotlin-mpp-cli")
+                    connection.set("scm:git:git://github.com/akuleshov7/kotlin-mpp-cli.git")
                 }
             }
         }

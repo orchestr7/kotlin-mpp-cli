@@ -1,3 +1,5 @@
+rootProject.name = "plugins"
+
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {

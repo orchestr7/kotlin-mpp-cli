@@ -16,7 +16,6 @@ import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 
 plugins {
     kotlin("multiplatform")
-    // kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -93,8 +92,8 @@ kotlin {
     }
 }
 
-configureJacoco()
+// configureJacoco()
 
-tasks.withType<KotlinJvmTest> {
+tasks.withType<Test> {
     useJUnitPlatform()
 }
