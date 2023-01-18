@@ -117,6 +117,6 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: ${{ runner.os == 'Windows' || runner.os == 'macOS' }}
         with:
-          check_name: JUnit Tests (${{ runner.os }}, EnricoMi/publish-unit-test-result-action@v1)
+          check_name: JUnit Tests (${{ runner.os }})
           files: |
             **/build/test-results/*/TEST-*.xml

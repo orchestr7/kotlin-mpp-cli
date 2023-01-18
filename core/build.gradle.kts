@@ -1,7 +1,7 @@
 
 
 plugins {
-    id("com.akuleshov7.cli.buildutils.kotlin-library")
+    id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
 }
 
 kotlin {

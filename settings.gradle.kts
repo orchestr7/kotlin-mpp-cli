@@ -1,5 +1,6 @@
 rootProject.name = "kotlin-mpp-cli"
 
+includeBuild("gradle/plugins")
 include("common")
 include("driver")
 include("core")

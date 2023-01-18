@@ -3,7 +3,7 @@ import com.akuleshov7.cli.generation.generateConfigOptions
 import com.akuleshov7.cli.generation.optionsConfigFilePath
 
 plugins {
-    id("com.akuleshov7.cli.buildutils.kotlin-library")
+    id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
 }
 
 kotlin {

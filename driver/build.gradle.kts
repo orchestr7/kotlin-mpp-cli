@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 plugins {
     application
-    id("com.akuleshov7.cli.buildutils.kotlin-library")
+    id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
 }
 
 kotlin {
