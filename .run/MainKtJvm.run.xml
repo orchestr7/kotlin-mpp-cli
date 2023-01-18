@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MainKtJvm" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="com.akuleshov7.cli.driver.MainKt" />
+    <module name="kotlin-mpp-cli.driver.jvmMain" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

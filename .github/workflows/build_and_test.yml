@@ -62,23 +62,6 @@ jobs:
             -PgprUser=${{ github.actor }}
             -PgprKey=${{ secrets.GITHUB_TOKEN }}
 
-        # This step needs a Git repository, so it's impossible to extract it
-        # into a separate job (or, otherwise, we'd need to upload the content
-        # of the whole `.git` folder as an artifact).
-      - name: JUnit Tests (dorny/test-reporter@v1)
-        uses: dorny/test-reporter@v1
-        if: ${{ always() }}
-        with:
-          name: JUnit Tests (${{ runner.os }}, dorny/test-reporter@v1)
-          # Comma-separated values.
-          path: "**/build/test-results/*/TEST-*.xml"
-          reporter: java-junit
-        # Ignore the "Resource not accessible by integration" error when a PR
-        # originates from a non-collaborator. This is
-        # <https://github.com/dorny/test-reporter/issues/168> which may be
-        # potentially fixed with <https://github.com/dorny/test-reporter/pull/174>.
-        continue-on-error: true
-
       - name: Upload test results
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
@@ -126,7 +109,7 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: ${{ runner.os == 'Linux' }}
         with:
-          check_name: JUnit Tests (${{ runner.os }}, EnricoMi/publish-unit-test-result-action@v1)
+          check_name: JUnit Tests (${{ runner.os }})
           files: |
             **/build/test-results/*/TEST-*.xml
 
