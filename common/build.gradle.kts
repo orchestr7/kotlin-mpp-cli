@@ -3,7 +3,8 @@ import com.akuleshov7.cli.generation.generateConfigOptions
 import com.akuleshov7.cli.generation.optionsConfigFilePath
 
 plugins {
-    id("com.akuleshov7.cli.buildutils.kotlin-library")
+    id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -15,7 +16,6 @@ kotlin {
                 implementation(libs.kotlinx.serialization.properties)
                 implementation(libs.kotlinx.serialization.core)
                 implementation(libs.kotlinx.datetime)
-                implementation(libs.kotlinx.coroutines.core)
                 implementation(files("/generated/src"))
             }
         }

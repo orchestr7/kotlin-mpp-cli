@@ -1,8 +1,6 @@
 /**
- * Configure JaCoCo for code coverage calculation
+ * Jacoco (code coverage) plugin configuration utils
  */
-
-@file:Suppress("FILE_WILDCARD_IMPORTS")
 
 package com.akuleshov7.cli.buildutils
 
@@ -47,7 +45,7 @@ fun Project.configureJacoco() {
     }
 
     // `application` plugin creates jacocoTestReport task in plugin section (this is definitely incorrect behavior)
-    // AFTER that in "com.akuleshov7.cli.buildutils.kotlin-library" we try to register this task once again and fail
+    // AFTER that in "com.saveourtool.save.buildutils.kotlin-library" we try to register this task once again and fail
     // so the order of plugins in `apply` is critically important
     val jacocoTestReportTask = if (project.name == "cli") {
         val jacocoTestReportTask by tasks.named("jacocoTestReport", configure)

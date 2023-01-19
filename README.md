@@ -6,19 +6,21 @@
 ![Run diKTat](https://github.com/akuleshov7/kotlin-mpp-cli/actions/workflows/diktat.yml/badge.svg?branch=main)
 
 Want to write a native cli application, but do not want to write it in C/C++? 
-You can easily write it using Kotlin MPP and have Java/Native executables using this template!
-All boilerplate is already done in this template, so no need to spend days on the boring work.
+Do not want users to think about installing SDK (like Python, JDK/JRE, etc.) and related dependencies?
+You can easily and quickly write your application using Kotlin MPP and have Native executables using this template!
+All boilerplate is already done in this template, so no need to spend days on the boring work and on the setup of 
+environment, all you need - to implement business logic.
 
-Don't forget to give a star to this project to save it! :star:
+We did this boring work for you, so don't forget to give a star to this project to save it in your list! :star:
 
 ## What's inside
 :white_check_mark: Github actions build/release scripts to Central and Github Releases \
 :white_check_mark: Gradle build/release tasks for Kotlin MPP \
-:white_check_mark: Code analysis enabled with full GitHub integration \
+:white_check_mark: Code analysis enabled with a full GitHub integration \
 :white_check_mark: Junit testing report integration with Github \
-:white_check_mark: Nice and easy code generation for cli with a config file \
+:white_check_mark: Nice and easy code generation for cli from a config file \
 :white_check_mark: Application that is based on `kotlinx.cli` \
-:white_check_mark: Utility methods for a cli application \
+:white_check_mark: Utility methods for a cli application 
 
 ## How to use it
 0. Create a new repository based on this template using Github: `Use this template` -> `Create a new repository`;
@@ -43,12 +45,18 @@ However, to reduce the scope, kotlin-mpp-cli now supports only the following pla
 
 :globe_with_meridians: latest supported Kotlin version: 1.8
 
-## Small notes about architecture of this project
+## Small notes about an architecture of this project
 Main modules:
-- cli: contains main method and cli-related things
+- cli: contains `main` method and cli-related things
 - common: common logic like data models and so on
 - core: core business logic and a framework (if any)
 
+## Intellij IDEA problems
+JB still has a limited support to MPP projects, so you probably will have problems while indexing of this project in IDE.
+Known problems:
+- `CliProperties` probably can be ignored by indexing and marked as unknown dependency;
+- `main` method is not runnable out of the box in IDE, but you can run it using [run-configuration](.run/MainKtJvm.run.xml).
+
 ## Acknowledgement
-Special thanks to those developers who help us to maintain and improve this project:
+Special thanks to those developers who help us to make this project:
 @akuleshov7 @petertrr

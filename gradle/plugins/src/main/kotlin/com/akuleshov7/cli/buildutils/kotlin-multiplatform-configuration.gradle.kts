@@ -7,20 +7,19 @@
 
 package com.akuleshov7.cli.buildutils
 
-import org.gradle.kotlin.dsl.kotlin
+import org.gradle.kotlin.dsl.*
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
-import org.jetbrains.kotlin.gradle.targets.jvm.tasks.KotlinJvmTest
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
 }
 
 kotlin {
     jvm {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = "17"
                 freeCompilerArgs = freeCompilerArgs + "-Xjvm-default=all"
             }
         }
@@ -43,16 +42,16 @@ kotlin {
             }
     }
 
-    /*
-     * Common structure for MPP libraries:
-     *            common
-     *              |
-     *            nonJs
-     *          /       \
-     *       native      JVM
-     *     /   |    \
-     * linux  mingw macos
-     */
+    /* Common structure for MPP libraries:
+    *            common
+    *              |
+    *            nonJs
+    *          /       \
+    *       native      JVM
+    *     /   |    \
+    * linux  mingw macos
+    */
+
     sourceSets {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
@@ -91,10 +90,7 @@ kotlin {
 }
 
 // configureJacoco()
-configurePublishing()
-configureDiktat()
-configureDetekt()
 
-tasks.withType<KotlinJvmTest> {
+tasks.withType<Test> {
     useJUnitPlatform()
 }
