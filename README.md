@@ -34,6 +34,11 @@ We did this boring work for you, so don't forget to give a star to this project 
 8. Add publishing credentials for Maven central to GitHub: `OSSRH_USERNAME`, `OSSRH_PASSWORD`, `GPG_SEC`, `GPG_PASSWORD`.
 Read more [here](https://central.sonatype.org/publish/publish-gradle/).
 
+## Useful scripts
+1. To build project: `./gradlew build`
+2. To run diktat auto-fix: `./gradlew diktatFix`
+3. To run detekt: `./gradlew detektAll`
+
 ## Supported platforms
 Main part of the code is written in Kotlin **common** module. This means that it can be built for each and every Kotlin native platform.
 However, to reduce the scope, kotlin-mpp-cli now supports only the following platforms:

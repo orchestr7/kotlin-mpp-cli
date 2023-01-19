@@ -2,6 +2,7 @@
 
 plugins {
     id("com.akuleshov7.cli.buildutils.kotlin-multiplatform-configuration")
+    id("com.akuleshov7.cli.buildutils.code-quality-convention")
 }
 
 kotlin {
