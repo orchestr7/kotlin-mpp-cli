@@ -89,8 +89,6 @@ kotlin {
     }
 }
 
-// configureJacoco()
-
 tasks.withType<Test> {
     useJUnitPlatform()
 }
