@@ -23,7 +23,7 @@ fun Project.configureVersioning() {
 
     configure<ReckonExtension> {
         scopeFromProp()
-            stageFromProp("alpha", "rc", "final")
+        stageFromProp("alpha", "rc", "final")
     }
 
     val grgit = grgitProvider.get()

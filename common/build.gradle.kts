@@ -16,7 +16,6 @@ kotlin {
                 implementation(libs.kotlinx.serialization.properties)
                 implementation(libs.kotlinx.serialization.core)
                 implementation(libs.kotlinx.datetime)
-                implementation(libs.kotlinx.coroutines.core)
                 implementation(files("/generated/src"))
             }
         }

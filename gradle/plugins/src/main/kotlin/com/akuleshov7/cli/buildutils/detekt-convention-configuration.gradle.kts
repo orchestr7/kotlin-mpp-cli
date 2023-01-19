@@ -33,6 +33,7 @@ val reportMerge: TaskProvider<ReportMergeTask> = rootProject.tasks.named<ReportM
     )
     shouldRunAfter(tasks.withType<Detekt>())
 }
+
 tasks.withType<Detekt>().configureEach {
     reports.sarif.required.set(true)
     finalizedBy(reportMerge)

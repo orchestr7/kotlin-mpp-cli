@@ -8,11 +8,8 @@
 package com.akuleshov7.cli.buildutils
 
 import org.gradle.kotlin.dsl.*
-import org.jetbrains.kotlin.gradle.targets.jvm.tasks.KotlinJvmTest
-import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentArchitecture
-import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem
-import org.gradle.nativeplatform.platform.internal.DefaultOperatingSystem
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem
 
 plugins {
     kotlin("multiplatform")

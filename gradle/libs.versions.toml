@@ -6,7 +6,6 @@ kotest = "5.5.4"
 kotlin = "1.8.0"
 kotlinpoet = "1.12.0"
 kotlinx-cli = "0.3.5"
-kotlinx-coroutines = "1.6.3-native-mt"
 kotlinx-datetime = "0.4.0"
 ktoml = "0.4.0"
 okio = "3.2.0"
@@ -28,7 +27,6 @@ kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-plugin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 kotlinx-cli = { module = "org.jetbrains.kotlinx:kotlinx-cli", version.ref = "kotlinx-cli" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }

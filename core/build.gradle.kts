@@ -12,11 +12,11 @@ kotlin {
                 api(libs.okio)
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation(libs.kotlinx.coroutines.core)
             }
         }
     }
