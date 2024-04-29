@@ -1,5 +1,5 @@
 [versions]
-diktat = "1.2.4.1"
+diktat = "1.2.5"
 detekt = "1.22.0"
 junit = "5.9.1"
 kotest = "5.5.4"
