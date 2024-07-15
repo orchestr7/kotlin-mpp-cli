@@ -12,6 +12,6 @@ dependencies {
     implementation(libs.kotlin.gradle.plugin) {
         because("Add plugin on plugin classpath here to automatically set its version for the whole build")
     }
-    implementation("com.squareup:kotlinpoet:1.12.0")
+    implementation("com.squareup:kotlinpoet:1.18.1")
     implementation("com.google.code.gson:gson:2.10")
 }
