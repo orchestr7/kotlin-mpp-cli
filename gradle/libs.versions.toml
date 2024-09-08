@@ -1,6 +1,6 @@
 [versions]
 diktat = "1.2.4.1"
-detekt = "1.22.0"
+detekt = "1.23.7"
 junit = "5.9.1"
 kotest = "5.5.4"
 kotlin = "1.8.0"
