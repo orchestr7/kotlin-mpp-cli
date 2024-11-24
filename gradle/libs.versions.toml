@@ -10,7 +10,7 @@ kotlinx-datetime = "0.4.0"
 ktoml = "0.4.0"
 okio = "3.2.0"
 publish = "1.1.0"
-reckon = "0.16.1"
+reckon = "0.19.1"
 serialization = "1.4.1"
 
 [plugins]
